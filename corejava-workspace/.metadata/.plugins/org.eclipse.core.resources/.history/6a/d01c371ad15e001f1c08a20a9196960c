@@ -1,0 +1,546 @@
+package com.evergnet.corejava.sandhya.application4;
+//import java.io.IOException;
+//import java.util.Scanner;
+//
+//interface Module {
+//    void execute();
+//}
+//
+//abstract class CourseModule implements Module {
+//    protected int itemCost;
+//    protected int pieces;
+//    protected int amount;
+//    protected int amountDisc;
+//
+//    protected abstract void selectSubModule();
+//
+//    protected void calculateAmount() {
+//        amount = itemCost * pieces;
+//        System.out.println("Amount for courses before discount is Rs" + amount);
+//        if (amount >= 20000 && amount <= 30000)
+//            amountDisc = (int) (amount - (amount * 0.02));
+//        else if (amount >= 30000 && amount <= 50000)
+//            amountDisc = (int) (amount - (amount * 0.05));
+//        else if (amount >= 51000 && amount <= 100000)
+//            amountDisc = (int) ((amount - amount * 0.06));
+//        else if (amount >= 150000)
+//            amountDisc = (int) ((amount - amount * 0.08));
+//    }
+//
+//    protected void enterStudentCount(Scanner br) {
+//        System.out.println("Enter the number of students");
+//        pieces = Integer.parseInt(br.nextLine());
+//        System.out.println("You selected no of students are " + pieces);
+//        calculateAmount();
+//        System.out.println("Amount for courses after Discount for selected pieces is Rs" + amountDisc);
+//    }
+//
+//    @Override
+//    public void execute() {
+//        selectSubModule();
+//    }
+//}
+//
+//class FullstackModule extends CourseModule {
+//    @Override
+//    protected void selectSubModule() {
+//        Scanner br = new Scanner(System.in);
+//        System.out.println("------------------------");
+//        System.out.println("JavaFullstack");
+//        System.out.println("PythonFullstack");
+//        System.out.println("DotNetstack");
+//        System.out.println("------------------------------");
+//        System.out.println("Enter your Sub-Module name (JavaFullstack, PythonFullstack, DotNetstack): ");
+//        String submodule = br.nextLine();
+//
+//        switch (submodule) {
+//            case "JavaFullstack":
+//                itemCost = 10000;
+//                break;
+//            case "PythonFullstack":
+//                itemCost = 15000;
+//                break;
+//            case "DotNetstack":
+//                itemCost = 16000;
+//                break;
+//            default:
+//                System.out.println("Invalid Sub-Module selected.");
+//                break;
+//        }
+//        enterStudentCount(br);
+//    }
+//}
+//
+//class DbmsModule extends CourseModule {
+//    @Override
+//    protected void selectSubModule() {
+//        Scanner br = new Scanner(System.in);
+//        System.out.println("------------------------");
+//        System.out.println("Rdbms");
+//        System.out.println("Nosqldbms");
+//        System.out.println("Networkdbms");
+//        System.out.println("------------------------------");
+//        System.out.println("Enter your Sub-Module name (Rdbms, Nosqldbms, Networkdbms): ");
+//        String submodule = br.nextLine();
+//
+//        switch (submodule) {
+//            case "Rdbms":
+//                itemCost = 40000;
+//                break;
+//            case "Nosqldbms":
+//                itemCost = 50000;
+//                break;
+//            case "Networkdbms":
+//                itemCost = 44000;
+//                break;
+//            default:
+//                System.out.println("Invalid Sub-Module selected.");
+//                break;
+//        }
+//        enterStudentCount(br);
+//    }
+//}
+//
+//class MernstackModule extends CourseModule {
+//    @Override
+//    protected void selectSubModule() {
+//        Scanner br = new Scanner(System.in);
+//        System.out.println("------------------------");
+//        System.out.println("Mongodb");
+//        System.out.println("nodejs");
+//        System.out.println("------------------------------");
+//        System.out.println("Enter your Sub-Module name (Mongodb, nodejs): ");
+//        String submodule = br.nextLine();
+//
+//        switch (submodule) {
+//            case "Mongodb":
+//                itemCost = 25000;
+//                break;
+//            case "nodejs":
+//                itemCost = 30000;
+//                break;
+//            default:
+//                System.out.println("Invalid Sub-Module selected.");
+//                break;
+//        }
+//        enterStudentCount(br);
+//    }
+//}
+//
+//class ServicesModule implements Module {
+//    @Override
+//    public void execute() {
+//        Scanner br = new Scanner(System.in);
+//        System.out.println("-------------------");
+//        System.out.println("Call");
+//        System.out.println("Mail");
+//        System.out.println("Instagram");
+//        System.out.println("------------------------------");
+//        System.out.println("Enter your Module name (Call, Mail, Instagram): ");
+//        String service = br.nextLine();
+//
+//        switch (service) {
+//            case "Call":
+//                System.out.println("Phone number: 7036635645");
+//                break;
+//            case "Mail":
+//                System.out.println("Mail address: puppalasandhya77@gmail.com");
+//                break;
+//            case "Instagram":
+//                System.out.println("Instagram id: sandhya77");
+//                break;
+//            default:
+//                System.out.println("Invalid Service selected.");
+//                break;
+//        }
+//    }
+//}
+//
+//class PaymentModule implements Module {
+//    private final int pieces;
+//    private final int amount;
+//    private final int amountDisc;
+//
+//    public PaymentModule(int pieces, int amount, int amountDisc) {
+//        this.pieces = pieces;
+//        this.amount = amount;
+//        this.amountDisc = amountDisc;
+//    }
+//
+//    @Override
+//    public void execute() {
+//        Scanner br = new Scanner(System.in);
+//        System.out.println(" Payment Module");
+//        System.out.println("------------------------");
+//        System.out.println("Invoice");
+//        System.out.println("Summary");
+//        System.out.println("Payamount");
+//        System.out.println("---------------------------");
+//        System.out.println("Enter your Module code (Invoice, Summary, Payamount): ");
+//        String paymentOption = br.nextLine();
+//
+//        switch (paymentOption) {
+//            case "Invoice":
+//                System.out.println("Invoice Display");
+//                System.out.println("==================");
+//                System.out.println("Ordered Id: " + (Math.ceil(Math.random())));
+//                System.out.println("You selected no of students are " + pieces);
+//                System.out.println("To Make Payment: Rs" + amount);
+//                break;
+//
+//            case "Summary":
+//                System.out.println("Summary Of Order");
+//                System.out.println("======================");
+//                System.out.println("You selected courses item cost Rs" + amount);
+//                System.out.println("You selected no of pieces are " + pieces);
+//                System.out.println("Amount for taken courses after Discount for selected students is Rs" + amountDisc);
+//                System.out.println("Total Amount to be Paid: Rs" + amountDisc);
+//                break;
+//
+//            case "Payamount":
+//                System.out.println("Total pay amount: " + amountDisc);
+//                break;
+//
+//            default:
+//                System.out.println("Invalid Payment option selected.");
+//                break;
+//        }
+//    }
+//}
+//
+//class ExitModule implements Module {
+//    @Override
+//    public void execute() {
+//        System.out.println("Thank you");
+//        System.exit(0);
+//    }
+//}
+//
+//public class CoursesManagementSystem_Sandhya {
+//    public static void main(String[] args) throws IOException {
+//        Scanner br = new Scanner(System.in);
+//        while (true) {
+//            System.out.println("\n\t\t \t\t Welcome To Institution Courses");
+//            System.out.println("-------------------------");
+//            System.out.println("!!!!!!INSTITUTION COURSES !!!!!!");
+//            System.out.println("-----------------------------");
+//            System.out.println("1. Courses");
+//            System.out.println("2. Services");
+//            System.out.println("3. Payment");
+//            System.out.println("4. Exit");
+//            System.out.println("-----------------------------");
+//            System.out.println("Enter your Module name (Courses, Services, Payment, Exit): ");
+//            String module = br.nextLine();
+//
+//            Module selectedModule;
+//            switch (module) {
+//                case "Courses":
+//                    System.out.println("Course names");
+//                    System.out.println("-------------------------");
+//                    System.out.println("1. Fullstack");
+//                    System.out.println("2. Dbms");
+//                    System.out.println("3. Mernstack");
+//                    System.out.println("------------------------------");
+//                    System.out.println("Enter your Course name (Fullstack, Dbms, Mernstack): ");
+//                    String course = br.nextLine();
+//
+//                    switch (course) {
+//                        case "Fullstack":
+//                            selectedModule = new FullstackModule();
+//                            break;
+//                        case "Dbms":
+//                            selectedModule = new DbmsModule();
+//                            break;
+//                        case "Mernstack":
+//                            selectedModule = new MernstackModule();
+//                            break;
+//                        default:
+//                            System.out.println("Invalid Course selected.");
+//                            continue;
+//                    }
+//                    selectedModule.execute();
+//                    break;
+//
+//                case "Services":
+//                    selectedModule = new ServicesModule();
+//                    selectedModule.execute();
+//                    break;
+//
+//                case "Payment":
+//                    System.out.println("Enter the number of students: ");
+//                    int pieces = Integer.parseInt(br.nextLine());
+//                    System.out.println("Enter the amount before discount: ");
+//                    int amount = Integer.parseInt(br.nextLine());
+//                    System.out.println("Enter the discounted amount: ");
+//                    int amountDisc = Integer.parseInt(br.nextLine());
+//                    selectedModule = new PaymentModule(pieces, amount, amountDisc);
+//                    selectedModule.execute();
+//            }
+//        }
+//    }
+//}
+
+
+import java.io.IOException;
+import java.util.Scanner;
+
+abstract class CourseModule {
+    protected int itemCost;
+    protected int pieces;
+    protected int amount;
+    protected int amountDisc;
+
+    protected abstract void selectSubModule();
+
+    protected void calculateAmount() {
+        amount = itemCost * pieces;
+        System.out.println("Amount for courses before discount is Rs" + amount);
+        if (amount >= 20000 && amount <= 30000)
+            amountDisc = (int) (amount - (amount * 0.02));
+        else if (amount >= 30000 && amount <= 50000)
+            amountDisc = (int) (amount - (amount * 0.05));
+        else if (amount >= 51000 && amount <= 100000)
+            amountDisc = (int) ((amount - amount * 0.06));
+        else if (amount >= 150000)
+            amountDisc = (int) ((amount - amount * 0.08));
+    }
+
+    protected void enterStudentCount(Scanner br) {
+        System.out.println("Enter the number of students");
+        pieces = Integer.parseInt(br.nextLine());
+        System.out.println("You selected no of students are " + pieces);
+        calculateAmount();
+        System.out.println("Amount for courses after Discount for selected pieces is Rs" + amountDisc);
+    }
+}
+
+class FullstackModule extends CourseModule {
+    @Override
+    protected void selectSubModule() {
+        Scanner br = new Scanner(System.in);
+        System.out.println("------------------------");
+        System.out.println("JavaFullstack");
+        System.out.println("PythonFullstack");
+        System.out.println("DotNetstack");
+        System.out.println("------------------------------");
+        System.out.println("Enter your Sub-Module name (JavaFullstack, PythonFullstack, DotNetstack): ");
+        String submodule = br.nextLine();
+
+        switch (submodule) {
+            case "JavaFullstack":
+                itemCost = 10000;
+                break;
+            case "PythonFullstack":
+                itemCost = 15000;
+                break;
+            case "DotNetstack":
+                itemCost = 16000;
+                break;
+            default:
+                System.out.println("Invalid Sub-Module selected.");
+                break;
+        }
+        enterStudentCount(br);
+    }
+}
+
+class DbmsModule extends CourseModule {
+    @Override
+    protected void selectSubModule() {
+        Scanner br = new Scanner(System.in);
+        System.out.println("------------------------");
+        System.out.println("Rdbms");
+        System.out.println("Nosqldbms");
+        System.out.println("Networkdbms");
+        System.out.println("------------------------------");
+        System.out.println("Enter your Sub-Module name (Rdbms, Nosqldbms, Networkdbms): ");
+        String submodule = br.nextLine();
+
+        switch (submodule) {
+            case "Rdbms":
+                itemCost = 40000;
+                break;
+            case "Nosqldbms":
+                itemCost = 50000;
+                break;
+            case "Networkdbms":
+                itemCost = 44000;
+                break;
+            default:
+                System.out.println("Invalid Sub-Module selected.");
+                break;
+        }
+        enterStudentCount(br);
+    }
+}
+
+class MernstackModule extends CourseModule {
+    @Override
+    protected void selectSubModule() {
+        Scanner br = new Scanner(System.in);
+        System.out.println("------------------------");
+        System.out.println("Mongodb");
+        System.out.println("nodejs");
+        System.out.println("------------------------------");
+        System.out.println("Enter your Sub-Module name (Mongodb, nodejs): ");
+        String submodule = br.nextLine();
+
+        switch (submodule) {
+            case "Mongodb":
+                itemCost = 25000;
+                break;
+            case "nodejs":
+                itemCost = 30000;
+                break;
+            default:
+                System.out.println("Invalid Sub-Module selected.");
+                break;
+        }
+        enterStudentCount(br);
+    }
+}
+
+class ServicesModule {
+    public void execute() {
+        Scanner br = new Scanner(System.in);
+        System.out.println("-------------------");
+        System.out.println("Call");
+        System.out.println("Mail");
+        System.out.println("Instagram");
+        System.out.println("------------------------------");
+        System.out.println("Enter your Module name (Call, Mail, Instagram): ");
+        String service = br.nextLine();
+
+        switch (service) {
+            case "Call":
+                System.out.println("Phone number: 7036635645");
+                break;
+            case "Mail":
+                System.out.println("Mail address: puppalasandhya77@gmail.com");
+                break;
+            case "Instagram":
+                System.out.println("Instagram id: sandhya77");
+                break;
+            default:
+                System.out.println("Invalid Service selected.");
+                break;
+        }
+    }
+}
+
+class PaymentModule {
+    private final int pieces;
+    private final int amount;
+    private final int amountDisc;
+
+    public PaymentModule(int pieces, int amount, int amountDisc) {
+        this.pieces = pieces;
+        this.amount = amount;
+        this.amountDisc = amountDisc;
+    }
+
+    public void execute() {
+        Scanner br = new Scanner(System.in);
+        System.out.println(" Payment Module");
+        System.out.println("------------------------");
+        System.out.println("Invoice");
+        System.out.println("Summary");
+        System.out.println("Payamount");
+        System.out.println("---------------------------");
+        System.out.println("Enter your Module code (Invoice, Summary, Payamount): ");
+        String paymentOption = br.nextLine();
+
+        switch (paymentOption) {
+            case "Invoice":
+                System.out.println("Invoice Display");
+                System.out.println("==================");
+                System.out.println("Ordered Id: " + (Math.ceil(Math.random())));
+                System.out.println("You selected no of students are " + pieces);
+                System.out.println("To Make Payment: Rs" + amount);
+                break;
+
+            case "Summary":
+                System.out.println("Summary Of Order");
+                System.out.println("======================");
+                System.out.println("You selected courses item cost Rs" + amount);
+                System.out.println("You selected no of pieces are " + pieces);
+                System.out.println("Amount for taken courses after Discount for selected students is Rs" + amountDisc);
+                System.out.println("Total Amount to be Paid: Rs" + amountDisc);
+                break;
+
+            case "Payamount":
+                System.out.println("Total pay amount: " + amountDisc);
+                break;
+
+            default:
+                System.out.println("Invalid Payment option selected.");
+                break;
+        }
+    }
+}
+
+public class CoursesManagementSystem_Sandhya {
+    public static void main(String[] args) throws IOException {
+        Scanner br = new Scanner(System.in);
+        while (true) {
+            System.out.println("\n\t\t \t\t Welcome To Institution Courses");
+            System.out.println("-------------------------");
+            System.out.println("!!!!!!INSTITUTION COURSES !!!!!!");
+            System.out.println("-----------------------------");
+            System.out.println("1. Courses");
+            System.out.println("2. Services");
+            System.out.println("3. Payment");
+            System.out.println("4. Exit");
+            System.out.println("-----------------------------");
+            System.out.println("Enter your Module name (Courses, Services, Payment, Exit): ");
+            String module = br.nextLine();
+
+            if (module.equals("Courses")) {
+                System.out.println("Course names");
+                System.out.println("-------------------------");
+                System.out.println("1. Fullstack");
+                System.out.println("2. Dbms");
+                System.out.println("3. Mernstack");
+                System.out.println("------------------------------");
+                System.out.println("Enter your Course name (Fullstack, Dbms, Mernstack): ");
+                String course = br.nextLine();
+
+                switch (course) {
+                    case "Fullstack":
+                        FullstackModule fullstack = new FullstackModule();
+                        fullstack.selectSubModule();
+                        break;
+                    case "Dbms":
+                        DbmsModule dbms = new DbmsModule();
+                        dbms.selectSubModule();
+                        break;
+                    case "Mernstack":
+                        MernstackModule mernstack = new MernstackModule();
+                        mernstack.selectSubModule();
+                        break;
+                    default:
+                        System.out.println("Invalid Course selected.");
+                        break;
+                }
+            } else if (module.equals("Services")) {
+                ServicesModule services = new ServicesModule();
+                services.execute();
+            } else if (module.equals("Payment")) {
+                System.out.println("Enter the number of students: ");
+                int pieces = Integer.parseInt(br.nextLine());
+                System.out.println("Enter the amount before discount: ");
+                int amount = Integer.parseInt(br.nextLine());
+                System.out.println("Enter the discounted amount: ");
+                int amountDisc = Integer.parseInt(br.nextLine());
+
+                PaymentModule payment = new PaymentModule(pieces, amount, amountDisc);
+                payment.execute();
+            } else if (module.equals("Exit")) {
+                System.out.println("Thank you");
+                System.exit(0);
+            } else {
+                System.out.println("Invalid Module selected.");
+            }
+        }
+    }
+}

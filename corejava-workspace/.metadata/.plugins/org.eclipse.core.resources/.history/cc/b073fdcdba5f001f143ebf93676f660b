@@ -1,0 +1,13 @@
+package com.evergent.corejava.javabeans;
+
+public class StudentBeansImpl {
+
+	public static void main(String[] args) {
+		StudentBean s=new StudentBean();
+		s.setSname("sandhya");
+		s.setAddress("hyderabad");
+		s.setSno(100);
+
+	}
+
+}

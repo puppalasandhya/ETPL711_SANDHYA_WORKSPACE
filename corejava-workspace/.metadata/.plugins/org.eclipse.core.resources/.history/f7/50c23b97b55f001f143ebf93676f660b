@@ -1,0 +1,26 @@
+package com.evergent.corejava.exceptionhandling;
+
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class CompileTimeFileDemo15 {
+	public static void main(String[] args)
+   {
+		try {
+			File file=new File("c:/mydata/myinfo.txt");
+			Scanner sc=new Scanner(file);
+			while(sc.hasNext())
+			{
+				System.out.println(sc.nextLine());
+			}
+			sc.close();
+		}
+		catch(FileNotFoundException e)
+		{
+			System.out.println("File not found : "+e.getMessage());
+			e.printStackTrace();
+		}
+		
+   }
+
+}

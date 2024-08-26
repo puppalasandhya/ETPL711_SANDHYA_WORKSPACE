@@ -1,0 +1,91 @@
+package com.evergnet.corejava.sandhya.application4;
+
+//package com.evergent.corejava.sandhya.application4;
+
+import java.util.Scanner;
+
+class FullstackModule extends CourseModule {
+    @Override
+    protected void selectSubModule() {
+        Scanner br = new Scanner(System.in);
+        System.out.println("------------------------");
+        System.out.println("JavaFullstack");
+        System.out.println("PythonFullstack");
+        System.out.println("DotNetstack");
+        System.out.println("------------------------------");
+        System.out.println("Enter your Sub-Module name (JavaFullstack, PythonFullstack, DotNetstack): ");
+        String submodule = br.nextLine();
+
+        switch (submodule) {
+            case "JavaFullstack":
+                itemCost = 10000;
+                break;
+            case "PythonFullstack":
+                itemCost = 15000;
+                break;
+            case "DotNetstack":
+                itemCost = 16000;
+                break;
+            default:
+                System.out.println("Invalid Sub-Module selected.");
+                break;
+        }
+        enterStudentCount(br);
+    }
+}
+
+class DbmsModule extends CourseModule {
+    @Override
+    protected void selectSubModule() {
+        Scanner br = new Scanner(System.in);
+        System.out.println("------------------------");
+        System.out.println("Rdbms");
+        System.out.println("Nosqldbms");
+        System.out.println("Networkdbms");
+        System.out.println("------------------------------");
+        System.out.println("Enter your Sub-Module name (Rdbms, Nosqldbms, Networkdbms): ");
+        String submodule = br.nextLine();
+
+        switch (submodule) {
+            case "Rdbms":
+                itemCost = 40000;
+                break;
+            case "Nosqldbms":
+                itemCost = 50000;
+                break;
+            case "Networkdbms":
+                itemCost = 44000;
+                break;
+            default:
+                System.out.println("Invalid Sub-Module selected.");
+                break;
+        }
+        enterStudentCount(br);
+    }
+}
+
+class MernstackModule extends CourseModule {
+    @Override
+    protected void selectSubModule() {
+        Scanner br = new Scanner(System.in);
+        System.out.println("------------------------");
+        System.out.println("Mongodb");
+        System.out.println("nodejs");
+        System.out.println("------------------------------");
+        System.out.println("Enter your Sub-Module name (Mongodb, nodejs): ");
+        String submodule = br.nextLine();
+
+        switch (submodule) {
+            case "Mongodb":
+                itemCost = 25000;
+                break;
+            case "nodejs":
+                itemCost = 30000;
+                break;
+            default:
+                System.out.println("Invalid Sub-Module selected.");
+                break;
+        }
+        enterStudentCount(br);
+    }
+}

@@ -1,0 +1,84 @@
+package com.evergnet.corejava.sandhya.application4;
+
+import java.util.Scanner;
+
+class ServicesModule implements Module {
+    public void execute() {
+        Scanner br = new Scanner(System.in);
+        System.out.println("-------------------");
+        System.out.println("Call");
+        System.out.println("Mail");
+        System.out.println("Instagram");
+        System.out.println("------------------------------");
+        System.out.println("Enter your Module name (Call, Mail, Instagram): ");
+        String service = br.nextLine();
+
+        switch (service) {
+            case "Call":
+                System.out.println("Phone number: 7036635645");
+                break;
+            case "Mail":
+                System.out.println("Mail address: puppalasandhya77@gmail.com");
+                break;
+            case "Instagram":
+                System.out.println("Instagram id: sandhya77");
+                break;
+            default:
+                System.out.println("Invalid Service selected.");
+                break;
+        }
+    }
+}
+
+
+
+class PaymentModule {
+    private final int pieces;
+    private final int amount;
+    private final int amountDisc;
+
+    public PaymentModule(int pieces, int amount, int amountDisc) {
+        this.pieces = pieces;
+        this.amount = amount;
+        this.amountDisc = amountDisc;
+    }
+
+    public void processPayment() {
+        Scanner br = new Scanner(System.in);
+        System.out.println(" Payment Module");
+        System.out.println("------------------------");
+        System.out.println("Invoice");
+        System.out.println("Summary");
+        System.out.println("Payamount");
+        System.out.println("---------------------------");
+        System.out.println("Enter your Module code (Invoice, Summary, Payamount): ");
+        String paymentOption = br.nextLine();
+
+        switch (paymentOption) {
+            case "Invoice":
+                System.out.println("Invoice Display");
+                System.out.println("==================");
+                System.out.println("Ordered Id: " + (Math.ceil(Math.random())));
+                System.out.println("You selected no of students are " + pieces);
+                System.out.println("To Make Payment: Rs" + amount);
+                break;
+
+            case "Summary":
+                System.out.println("Summary Of Order");
+                System.out.println("======================");
+                System.out.println("You selected courses item cost Rs" + amount);
+                System.out.println("You selected no of pieces are " + pieces);
+                System.out.println("Amount for taken courses after Discount for selected students is Rs" + amountDisc);
+                System.out.println("Total Amount to be Paid: Rs" + amountDisc);
+                break;
+
+            case "Payamount":
+                System.out.println("Total pay amount: " + amountDisc);
+                break;
+
+            default:
+                System.out.println("Invalid Payment option selected.");
+                break;
+        }
+    }
+}

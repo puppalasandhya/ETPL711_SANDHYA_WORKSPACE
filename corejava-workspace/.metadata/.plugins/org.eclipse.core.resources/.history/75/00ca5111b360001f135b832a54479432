@@ -1,0 +1,6 @@
+package com.evergent.corejava.casestudy;
+
+public class LibraryInterfaceDemo {
+	public void registerAccount(int Age);
+    public void requestBook(String Book);
+}
